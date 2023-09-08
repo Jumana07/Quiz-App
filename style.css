@@ -1,0 +1,70 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing:border-box; 
+}
+:root {
+    --btncolor: #ffe74cff;
+    --wrong: #ff5964ff;
+    --white: #ffffffff;
+    --correct: #6bf178ff;
+    --bgcolor: #35a7ffff;
+    --textbg: #D9D9D9;
+    --fontfam:Arial,
+        Helvetica,
+        sans-serif;
+}
+body {
+    background: url("./images/bg.png");
+    background-repeat: no-repeat;
+    background-color:var(--bgcolor);
+    background-size:cover;
+    display:grid;
+    grid-template-rows: 1fr ;
+    place-items: center;
+    gap:6rem;
+    font-family: var(--fontfam);
+}
+h1 {
+    font-size:clamp(3px,6rem,8rem);
+    text-align:center;
+    color:var(--white);
+}
+#inputfile {
+padding:1rem;
+background-color: var(--btncolor);
+background-image: url("./images/wordupload.jpg");
+background-position: right;
+background-size:50px;
+background-repeat: no-repeat;
+border-radius: 1rem;
+}
+label {
+    font-weight:bold;
+    font-size:clamp(0.5rem,2rem,5rem);
+}
+.mainbtn {
+    background-color: var(--btncolor);
+    width:clamp(2rem,5rem,10rem);
+    height:3rem;
+    border-radius: 1rem;
+}
+@media only screen and (max-width: 600px) {
+    *{
+        min-width: min-content;
+        font-size: clamp(3px,5px,8px);
+        overflow: scroll;
+        word-wrap: break-word;
+    }
+    h1{
+        font-size:2px;
+        word-wrap:break-word;
+    }
+    label ,input{
+        max-width:fit-content;
+    }
+    button {
+        max-width:70px;
+    }
+
+                       }
