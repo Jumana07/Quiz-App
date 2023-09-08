@@ -32,13 +32,7 @@ const showResult = () => {
     const selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
 if(selectedOption) {
      const selectedAnswer = selectedOption.value;
- if (selectedAnswer === correctAnswer.data) {
-    // Increase the correct answer count
-    correct++;
-} else {
-    // Increase the wrong answer count
-    wrong++;
-}
+     selectedAnswer[i] == correctAnswer[i] ? correct++ : wrong++;
 }
 }
 openNext();
@@ -47,4 +41,10 @@ const openNext = () => {
     localStorage.setItem('corr',correct);
 localStorage.setItem('wro',wrong);
     window.open('./result.html');
+}
+const resetPage = () => {
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach((radioButton) => {
+                radioButton.checked = false;
+});
 }
