@@ -1,50 +1,63 @@
-let correct=0;
-let wrong=0;
-const csv_file = localStorage.getItem('fileData');
-console.log(csv_file);
-const lines = csv_file.split('\n');
- for (let i = 0; i < lines.length; i++) {
- const data = lines[i].split(',');
-  const question = data[0];
-  var correctAnswer = data[data.length - 1];
- const options = data.slice(1 , data.length - 1);
-
-    // Create HTML elements for each question and options
-    const questionElement = document.createElement("div");
-    questionElement.classList.add("questions");
-    questionElement.innerHTML = `<p>${question}</p>`;
-
-    const optionsElement = document.createElement("ul");
+let correct = 0;
+let wrong = 0;
+let file = localStorage.getItem('fileData');
+console.log(file);
+const lines = file.split('\n');
+for (let i = 0; i < lines.length; i++) {
+    //Separate file into questions,answeroptions and correct answers
+    const data = lines[i].split(',');
+    const questions = data[0];
+    const correctAnswers = data[data.length - 1];
+    const options = data.slice(1, data.length - 1);
+    //Create Question and Option Elements div,input-radio answer buttons and question p element
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('questions');
+    questionElement.innerHTML = `<p>${questions}</p>`;
+    const optionElement = document.createElement('ul');
     options.forEach((option) => {
         const optionItem = document.createElement("li");
         optionItem.classList.add("answeroption");
-        optionItem.innerHTML =`<input type="radio" class="radio" name="question${i}" value="${option}"> ${option}`;
-        optionsElement.appendChild(optionItem);
+        optionItem.innerHTML = `<input type="radio" class="radio" name="questions${i}" value="${option}"> ${option}`;
+        optionElement.appendChild(optionItem);
     });
+    //Append Question and Answer Elements to Quiz Container 
+    const quizContainer = document.getElementById("quiz-container");
+    quizContainer.appendChild(questionElement);
+    quizContainer.appendChild(optionElement);
+}
+//add Next button Listener
+function showResult() {
+    for (let i = 0; i < lines.length; i++) {
+        //Separate file into questions,answeroptions and correct answers
+        const data = lines[i].split(',');
+        const questions = data[0];
+        const correctAnswers = data[data.length - 1];
 
-// Append question and options to the quiz container
-const quizContainer = document.getElementById("quiz-container");
-quizContainer.appendChild(questionElement);
-quizContainer.appendChild(optionsElement);
+        const selectedOption = document.querySelector(`input[name="questions${i}"]:checked`);
+        if (selectedOption) {
+            const selectedAnswer = selectedOption.value;
+            console.log(selectedAnswer);
+            console.log(correctAnswers);
+            if (selectedAnswer[i] == correctAnswers[i]) {
+                correct++;
+            }
+            else {
+                wrong++;
+            }
+        }
+    }
+    openNext();
 }
-const showResult = () => {
-    for(var i=0;i<7;i++){
-    const selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
-if(selectedOption) {
-     const selectedAnswer = selectedOption.value;
-     selectedAnswer[i] == correctAnswer[i] ? correct++ : wrong++;
-}
-}
-openNext();
-}
+
 const openNext = () => {
-    localStorage.setItem('corr',correct);
-localStorage.setItem('wro',wrong);
+    localStorage.setItem('corr', correct);
+    localStorage.setItem('wro', wrong);
     window.open('./result.html');
 }
 const resetPage = () => {
     const radioButtons = document.querySelectorAll('input[type="radio"]');
-            radioButtons.forEach((radioButton) => {
-                radioButton.checked = false;
-});
+    radioButtons.forEach((radioButton) => {
+        radioButton.checked = false;
+    });
 }
+
