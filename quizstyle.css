@@ -36,9 +36,19 @@ input[type=radio] {
 #btn-div {
     text-align:center;
 }
-@media only screen and (max-width:600px) {
-* {
-    width:min-content;
-    font-size: clamp(3px, 5px, 8px);
-}
-}
+@media only screen and (width < 480px) and (orientation=portrait) {
+    * {
+        min-width: 70vw;
+        font-size:5px;
+        overflow: scroll;
+        word-wrap: break-word;
+    }
+  div {
+    width:80vw;
+  }
+  li{
+    display:inline-block;
+  }
+
+
+    }

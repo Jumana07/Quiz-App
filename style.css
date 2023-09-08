@@ -49,22 +49,54 @@ label {
     height:3rem;
     border-radius: 1rem;
 }
-@media only screen and (max-width: 600px) {
+main {
+container: main inline-size;
+}
+@container main (width < 350px) {
+max-width:70vw;
+}
+@media only screen and (width < 480px) and (orientation = portrait) {
     *{
-        min-width: min-content;
+        min-width: 70vw;
         font-size: clamp(3px,5px,8px);
         overflow: scroll;
         word-wrap: break-word;
+        place-items: center;
+        gap:5px;
     }
-    h1{
+h1{
         font-size:2px;
         word-wrap:break-word;
     }
-    label ,input{
-        max-width:fit-content;
+label ,input{
+        max-width:50vw;
     }
-    button {
-        max-width:70px;
+button {
+        fontisize:clamp(10px,20px,30px);
     }
 
-                       }
+        }
+@media only screen and (481px <= width <= 768) and (orientation = landscape)
+{
+* {
+    min-width: 70vw;
+    font-size: clamp(30px,50px,70px);
+    overflow: scroll;
+    word-wrap: break-word;
+    place-items: center;
+    gap: 5px;
+}
+
+h1 {
+    font-size: 30px;
+    word-wrap: break-word;
+}
+
+label ,input {
+    max-width:100px;
+}
+
+button {
+    fontisize: clamp(10px, 20px, 30px);
+}
+}
