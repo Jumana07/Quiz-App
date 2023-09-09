@@ -1,5 +1,6 @@
 let correct = 0;
 let wrong = 0;
+let lastClickTime = 0;
 let file = localStorage.getItem('fileData');
 console.log(file);
 const lines = file.split('\n');
@@ -26,7 +27,19 @@ for (let i = 0; i < lines.length; i++) {
     quizContainer.appendChild(optionElement);
 }
 //add Next button Listener
-function showResult() {
+function showResult(e) {
+    //To Prevent Counting of Double-Clicks
+    currentTime = new Date().getTime();
+  const timeSinceLastClick = currentTime - lastClickTime;
+
+  if (timeSinceLastClick < 300) {
+    // Double click detected, handle it as one click
+    e.preventDefault();
+    
+  }
+
+  lastClickTime = currentTime;
+
     for (let i = 0; i < lines.length; i++) {
         //Separate file into questions,answeroptions and correct answers
         const data = lines[i].split(',');
