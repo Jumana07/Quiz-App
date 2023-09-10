@@ -46,14 +46,29 @@
         }
         @media only screen and (width < 480px) and (orientation = portrait) {
             div {
-                width:80vw;
+                width:85vw;
                 text-align: center;
             }
-            .rescorrect,.reswrong {
-                font-size:2px;
-                font-weight: bold;
-            
-            }
+        .rescorrect,.reswrong {
+        min-width: min-content;
+        height:auto;
+        font-size:2em;
+        font-weight: bolder;
+        color:black;
+        float: right;
+        line-height:unset;
+        border: 0.5em solid darkslateblue; 
+         }
+         button {
+        width: 80%; 
+        height: auto; 
+        background-color: #ffe74cff;
+        font-size: clamp(0.8rem, 1.8rem, 2.3rem); 
+        padding: 1rem 1.5rem; 
+        margin: 2rem auto; 
+        text-align: center; 
+        font-weight: bold;
+    }
             h3 {
                 text-align: center;
             }
