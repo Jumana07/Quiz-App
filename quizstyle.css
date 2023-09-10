@@ -36,27 +36,7 @@ input[type=radio] {
 #btn-div {
     text-align:center;
 }
-@media only screen and (width <= 599px) and (orientation=portrait) {
-    * {
-        min-width: 70vw;
-        font-size:clamp(3px,5px,6px);
-        overflow: scroll;
-        word-wrap: break-word;
-    }
-  div {
-    max-width:80vw;
-  }
-  li{
-    display:inline-block;
-      max-width:4px;
-  }
-input[type=radio] {
-            min-width:1px;
-            margin:0;
-            padding:0;
-        }
-}
-@media only screen and (width > 600px) and (orientation=portrait) {
+@media only screen and (width < 480px) and (orientation=portrait) {
     * {
         min-width: 70vw;
         font-size:5px;
@@ -72,5 +52,3 @@ input[type=radio] {
 
 
     }
-
-    
