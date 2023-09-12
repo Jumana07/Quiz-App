@@ -38,7 +38,7 @@ Quiz-App/
 - `style.css`: The CSS file containing custom styles for the website.
 - `script.js`: The JavaScript file containing custom scripts for index.html.
 - `Questions.html`: The HTML file containing code to display the Question and Answers from uploadee File.
-- `quizstyle.css': The CSS file containing custom styles for Questions.html page.
+- `quizstyle.css`: The CSS file containing custom styles for Questions.html page.
 - `script1.js`: The JavaScript file containing custom scripts for Questions.html page.
 - `result.html`: The HTML file containing code to display the Quiz Result in Correct and Wrong Buttons.
 - `images/`: A directory containing Upload Button image,Background-image and other related images.
