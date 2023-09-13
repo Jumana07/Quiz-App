@@ -28,6 +28,8 @@ for (let i = 0; i < lines.length; i++) {
 }
 //add Next button Listener
 function showResult(e) {
+    correct=0;
+    wrong=0;
     //To Prevent Counting of Double-Clicks
     currentTime = new Date().getTime();
   const timeSinceLastClick = currentTime - lastClickTime;
